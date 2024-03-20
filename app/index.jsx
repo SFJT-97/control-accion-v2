@@ -13,7 +13,7 @@ export default function HomeScreen(){
 
     /* index.js dentro de App maneja el estado de login del usuario */
     
-    const isLoggedIn = false;
+    const isLoggedIn = true; /* Esto va a ser un useState(); */
 
     if (isLoggedIn) {
         return <Redirect href="/(drawer)/home" />

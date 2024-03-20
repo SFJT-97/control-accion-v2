@@ -3,10 +3,12 @@ import { View, Text } from 'react-native';
 
 import { Stack, Link } from 'expo-router';
 
-import { TextInput, Button } from 'react-native-paper';
+import { TextInput, Button, useTheme } from 'react-native-paper';
 import { MaterialCommunityIcons as MaterialIcon } from '@expo/vector-icons'
 
-export default function LoginScreen() {
+function LoginScreen() {
+
+    theme = useTheme();
 
     const [user, setUser] = React.useState("");
     const [password, setPassword] = React.useState("");
@@ -56,3 +58,5 @@ export default function LoginScreen() {
         </View>
     )
 }
+
+export default LoginScreen;
