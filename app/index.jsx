@@ -1,7 +1,5 @@
 import { Redirect } from 'expo-router';
 
-import { PaperProvider } from 'react-native-paper';
-
 import { registerRootComponent } from 'expo';
 
 /* PaperProvider & registerRootComponent son necesarios para el funcionamiento de React Native Paper */
@@ -12,11 +10,16 @@ import { registerRootComponent } from 'expo';
 */
 
 export default function HomeScreen(){
-    return(
-    <PaperProvider>
-        <Redirect href={"/(drawer)/home"} />
-    </PaperProvider>
-    );
+
+    /* index.js dentro de App maneja el estado de login del usuario */
+    
+    const isLoggedIn = false;
+
+    if (isLoggedIn) {
+        return <Redirect href="/(drawer)/home" />
+    } else {
+        return <Redirect href="/(auth)/login" />
+    }
 }
 
-registerRootComponent(HomeScreen);
+registerRootComponent(HomeScreen)
