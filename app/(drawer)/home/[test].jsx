@@ -2,27 +2,23 @@
 
 import { View, Text } from 'react-native'
 
-import { Stack } from 'expo-router'
+import { Stack, useLocalSearchParams } from 'expo-router'
 
-import { useLocalSearchParams } from 'expo-router';
-
-export default function TestReport() {
-
-  const { test } = useLocalSearchParams();
-
+export default function TestReport () {
+  const { test } = useLocalSearchParams()
 
   return (
     <View>
 
-    <Stack.Screen
-      options={{
-        title: ( "Report #" + test )
-      }}
-    />
+      <Stack.Screen
+        options={{
+          title: ('Report #' + test)
+        }}
+      />
 
-        <Text>
-            Test Report: { test }
-        </Text>
+      <Text>
+        Test Report: {test}
+      </Text>
     </View>
   )
 }

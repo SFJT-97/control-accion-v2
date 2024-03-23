@@ -12,12 +12,17 @@ import { Slot } from 'expo-router';
 
 export default function RootLayout() {
 
-  /* Definir si usaremos el esquema de colores en base a la configuracion del usuario, o independiente a traves de un toggler con useState */
+/*   Definir si usaremos el esquema de colores en base a la configuracion del usuario, o independiente a traves de un toggler con useState
+/* 
+/*   const colorScheme = useColorScheme();
+/* 
+/*   const theme = colorScheme === 'dark' ? Theme.DarkThemeColors : Theme.LightThemeColors;
+/*   const themenav = colorScheme === 'dark' ? Theme.DarkThemeNavColors : Theme.LightThemeNavColors; */
+  
+  const theme = Theme.LightThemeColors;
+  const themenav = Theme.LightThemeNavColors;
 
-  const colorScheme = useColorScheme();
-
-  const theme = colorScheme === 'dark' ? Theme.DarkThemeColors : Theme.LightThemeColors;
-  const themenav = colorScheme === 'dark' ? Theme.DarkThemeNavColors : Theme.LightThemeNavColors;
+  
 
     return(
         <PaperProvider theme={theme && themenav}>
@@ -26,5 +31,4 @@ export default function RootLayout() {
           </ThemeProvider>
         </PaperProvider>
     )
-
 }
