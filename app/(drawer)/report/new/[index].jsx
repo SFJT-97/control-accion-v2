@@ -1,89 +1,23 @@
-import * as React from 'react'
+import { ScrollView } from 'react-native' // * usar SafeAreaView en su lugar si en la pagina va a haber scroll
 
-import { View, ScrollView, StyleSheet } from 'react-native'
-
-import { Text, TextInput, Button, Portal, Modal, PaperProvider } from 'react-native-paper'
+import { useTheme } from 'react-native-paper'
 
 import { Stack, useLocalSearchParams } from 'expo-router'
 
-import PickerComponent from './components/picker'
-import PickerSeverity from './components/pickerseverity'
-import DateTimeComponent from './components/date'
-import HelpButton from '../Components/ReportScreen/HelpButton'
+import HelpButton from '../../../../globals/HelpButton';
 
 export default function NewReport () {
-  const { test, name } = useLocalSearchParams()
 
-  const [visible, setVisible] = React.useState(false)
-
-  const showModal = () => setVisible(true)
-  const hideModal = () => setVisible(false)
-  const containerStyle = { backgroundColor: 'white', padding: 20 }
+  const theme = useTheme();
 
   return (
-    <ScrollView style={{ margin: 25, paddingTop: 15, paddingBottom: 15, rowGap: 50, backgroundColor: 'rgb(218, 229, 228)', borderRadius: 25 }}>
+    <ScrollView style={{ rowGap: 50 }}>
       <Stack.Screen
         options={{
-          title: ('New Report #' + test),
+          title: ('New Report #'),
           headerRight: () => <HelpButton />
         }}
       />
-
-      <View>
-        <TextInput
-          label='Nombre'
-          value={name}
-          disabled
-        />
-      </View>
-
-      <View style={{ rowGap: 25, marginTop: 25 }}>
-        <Text style={styles.headind2}>
-          Incident Type:
-        </Text>
-        <View style={{ display: 'flex', alignItems: 'center' }}>
-          <PickerComponent />
-        </View>
-      </View>
-
-      <View style={{ rowGap: 25, marginTop: 25 }}>
-        <Text style={styles.headind2}>
-          Time & Date
-        </Text>
-        <View style={{ display: 'flex', flexDirection: 'col', alignItems: 'center' }}>
-          <DateTimeComponent />
-        </View>
-      </View>
-
-      <View style={{ rowGap: 25, marginTop: 25, marginBottom: 25 }}>
-        <Text style={styles.headind2}>
-          Severity:
-        </Text>
-        <View style={{ display: 'flex', alignItems: 'center' }}>
-          <PickerSeverity />
-        </View>
-      </View>
-
-      <View style={{ rowGap: 25, marginTop: 25, marginBottom: 25 }}>
-        <Text style={styles.headind2}>
-          Description:
-        </Text>
-        <View style={{ display: 'flex', alignItems: 'center' }}>
-          <TextInput
-            mode='outlined'
-            multiline
-            style={{ width: '80%' }}
-          />
-        </View>
-      </View>
-
     </ScrollView>
   )
 }
-
-const styles = StyleSheet.create({
-  headind2: {
-    fontSize: 24,
-    marginLeft: 20
-  }
-})

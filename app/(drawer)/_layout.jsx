@@ -1,10 +1,14 @@
-import { Drawer } from 'expo-router/drawer'
+import { Drawer } from 'expo-router/drawer';
 
-import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { useTheme } from 'react-native-paper';
 
-import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function DrawerLayout () {
+
+  const theme = useTheme();
+
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Drawer
@@ -18,7 +22,7 @@ export default function DrawerLayout () {
           name='home'
           options={{
             drawerLabel: 'Home',
-            drawerIcon: ({ size, color }) => <MaterialCommunityIcons name='home' size={24} color='black' />
+            drawerIcon: ({ size, color }) => <MaterialCommunityIcons name='home' size={size} color={color} />
           }}
         />
 
@@ -26,7 +30,7 @@ export default function DrawerLayout () {
           name='report'
           options={{
             drawerLabel: 'Report',
-            drawerIcon: ({ size, color }) => <MaterialCommunityIcons name='alarm-light' size={24} color='black' />
+            drawerIcon: ({ size, color }) => <MaterialCommunityIcons name='alarm-light' size={size} color={color} />
           }}
         />
 
@@ -34,7 +38,7 @@ export default function DrawerLayout () {
           name='chat'
           options={{
             drawerLabel: 'Chat',
-            drawerIcon: ({ size, color }) => <MaterialCommunityIcons name='chat' size={24} color='black' />
+            drawerIcon: ({ size, color }) => <MaterialCommunityIcons name='chat' size={size} color={color} />
           }}
         />
 
@@ -42,7 +46,7 @@ export default function DrawerLayout () {
           name='settings'
           options={{
             drawerLabel: 'Settings',
-            drawerIcon: ({ size, color }) => <MaterialCommunityIcons name='account-cog' size={24} color='black' />
+            drawerIcon: ({ size, color }) => <MaterialCommunityIcons name='account-cog' size={size} color={color} />
           }}
         />
 

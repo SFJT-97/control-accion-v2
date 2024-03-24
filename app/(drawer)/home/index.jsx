@@ -1,60 +1,26 @@
-import { View, Text } from 'react-native'
+import { ScrollView, View } from 'react-native'; // * usar SafeAreaView en su lugar si en la pagina no habra scroll
 
-import { Link } from 'expo-router'
+import { Drawer } from 'expo-router/drawer';
+import { DrawerToggleButton } from '@react-navigation/drawer';
 
-import { Drawer } from 'expo-router/drawer'
+import { useTheme, Text } from 'react-native-paper';
 
-import { DrawerToggleButton } from '@react-navigation/drawer'
 
-/* import { Button } from 'react-native-paper'; */
-
-/* Seguir probando como pasar los temas globales a los componentes de Paper */
 
 export default function HomePage () {
+
+  const theme = useTheme()
+
   return (
-    <View>
+    <ScrollView>
       <Drawer.Screen
         options={{
           title: 'Home',
           headerShown: true,
-          headerLeft: () => <DrawerToggleButton />
+          headerLeft: () => <DrawerToggleButton tintColor={theme.colors.primary} />
         }}
       />
-
-      {/* Variables locales superseden props y opciones globales, cascada inversa */}
-
-      <Text>
-        HomePage
-      </Text>
-
-      <Link href={{
-        pathname: '/home/[test]',
-        params: { test: 'Humberto Juarez' }
-      }}
-      >
-        Navigate to Report of Interest
-      </Link>
-
-      {/*         <Button icon="camera" mode="contained" onPress={() => console.log('Pressed')}>
-          Press me
-        </Button> */}
-
-      <Link href={{
-        pathname: '/home/[test]',
-        params: { test: '1029312' }
-      }}
-      >
-        Navigate to Report of Interest
-      </Link>
-
-      <Link href={{
-        pathname: '/home/[test]',
-        params: { test: '345' }
-      }}
-      >
-        Navigate to Report of Interest
-      </Link>
-
-    </View>
+      <Text>Test Home</Text>
+    </ScrollView>
   )
 }
