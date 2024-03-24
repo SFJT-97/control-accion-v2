@@ -1,5 +1,7 @@
+// Importa los schema de colores default de Material Design 3
 import { MD3LightTheme, MD3DarkTheme } from 'react-native-paper'
 
+// Define colores del schema custom que pueden ser aplicados a Material Design 3
 const lightColors = {
   colors: {
     primary: 'rgb(0, 106, 106)',
@@ -90,6 +92,8 @@ const darkColors = {
   }
 }
 
+// Aplica los colores previamente definidos en lightColors & darkColors a Material Design 3 de React Native Paper
+
 export const LightThemeColors = {
   ...MD3LightTheme,
   ...lightColors
@@ -100,26 +104,28 @@ export const DarkThemeColors = {
   ...darkColors
 }
 
+// * adaptReactNavigation de React Native Paper no aplicaba los colores a React Navigation, por lo que se les definio directamente
+
 export const LightThemeNavColors = {
   dark: false,
   colors: {
-    primary: 'rgb(0, 106, 106)', /* Primary */
-    background: 'rgb(250, 253, 252)', /* Background */
-    card: 'rgb(218, 229, 228)', /* Surface Variant */
-    text: 'rgb(25, 28, 28)', /* On Background */
-    border: 'rgb(63, 73, 72)', /* On Surface Variant */
-    notification: 'rgb(65, 0, 2)' /* On Error Container */
+    primary: lightColors.colors.primary,
+    background: lightColors.colors.background,
+    card: lightColors.colors.surface,
+    text: lightColors.colors.onSurface,
+    border: lightColors.colors.outline,
+    notification: lightColors.colors.error
   }
 }
 
 export const DarkThemeNavColors = {
   dark: true,
   colors: {
-    primary: 'rgb(0, 221, 221)', /* Primary */
-    background: 'rgb(25, 28, 28)', /* Secondary Container */
-    card: 'rgb(63, 73, 72)', /* Surface Variant */
-    text: 'rgb(224, 227, 226)', /* On Background */
-    border: 'rgb(190, 201, 200)', /* On Surface Variant */
-    notification: 'rgb(255, 69, 58)' /* On Error Container */
+    primary: darkColors.colors.primary,
+    background: darkColors.colors.background,
+    card: darkColors.colors.surface,
+    text: darkColors.colors.onSurface,
+    border: darkColors.colors.outline,
+    notification: darkColors.colors.error
   }
 }

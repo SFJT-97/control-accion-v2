@@ -2,7 +2,7 @@ import { View, Text } from 'react-native'
 
 import { Stack } from 'expo-router'
 
-import { GlobalStyles } from '../../globals/styles'
+import { GlobalStyles } from '../../../globals/styles'
 
 export default function SignUp () {
   return (

@@ -1,18 +1,14 @@
+import { useState } from 'react'
 import { Redirect } from 'expo-router'
 
-import { registerRootComponent } from 'expo'
-
-/* PaperProvider & registerRootComponent son necesarios para el funcionamiento de React Native Paper */
-
-/* Theme:
-    ThemeProvider de Expo, en lugar de Navigation.Container para construir Tema para Nav (https://docs.expo.dev/router/appearance/#react-navigation-themes)
-    Investigar porque al pasar el prop de theme, el resto de la app no lo recibe para llamar los colores del tema construido en Paper (https://www.youtube.com/watch?v=ltOccWcwnxw)
-*/
+// ? Parece que registrar el Root no es necesario si el _layout.jsx que lo establece es el primero dentro de ./app, investigar mas.
+// import { registerRootComponent } from 'expo'
 
 export default function HomeScreen () {
-  /* index.js dentro de App maneja el estado de login del usuario */
+  // * index.js dentro de App maneja el estado de login del usuario
 
-  const isLoggedIn = true /* Esto va a ser un useState(); */
+  // TODO: Expandir useState con el BE
+  const [isLoggedIn, setIsLoggedIn] = useState(true)
 
   if (isLoggedIn) {
     return <Redirect href='/(drawer)/home' />
@@ -20,5 +16,3 @@ export default function HomeScreen () {
     return <Redirect href='/(auth)/login' />
   }
 }
-
-registerRootComponent(HomeScreen)

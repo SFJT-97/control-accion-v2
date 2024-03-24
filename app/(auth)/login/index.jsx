@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { View } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 import { Stack, Link } from 'expo-router'
 
@@ -13,14 +14,14 @@ function LoginScreen () {
   const [password, setPassword] = React.useState('')
 
   return (
-    <View style={{ marginVertical: 50, marginHorizontal: 15, rowGap: 30 }}>
+    <SafeAreaView style={{ marginVertical: 30, marginHorizontal: 15, rowGap: 30 }}>
       <Stack.Screen
         options={{
           title: 'Login'
         }}
       />
 
-      <MaterialIcon name='chart-bar' size={56} color='black' style={{ alignSelf: 'center' }} />
+      <MaterialIcon name='chart-bar' size={56} color={theme.colors.primary} style={{ alignSelf: 'center' }} />
       <Text variant='headlineLarge' style={{ textAlign: 'center', fontWeight: '200' }}>
         CONTROL ACCION
       </Text>
@@ -30,8 +31,6 @@ function LoginScreen () {
         <TextInput
           label='Username'
           mode='outlined'
-          textColor='white'
-          outlineColor={theme.colors.onSurface}
           right={<TextInput.Icon icon='account' />}
           onChangeText={user => setUser(user)}
         />
@@ -48,7 +47,7 @@ function LoginScreen () {
 
       <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', columnGap: 25 }}>
 
-        <Button mode='contained' textColor='white' onPress={() => console.log('Pressed Login Button')}>
+        <Button mode='contained' onPress={() => console.log('Pressed Login Button')}>
           Login
         </Button>
         <Button mode='outlined' onPress={() => console.log('Pressed Sign Up Button')}>
@@ -56,7 +55,7 @@ function LoginScreen () {
         </Button>
       </View>
 
-    </View>
+    </SafeAreaView>
   )
 }
 
