@@ -4,7 +4,7 @@ import { Text, TextInput, IconButton, useTheme, Dialog, Portal, Button } from 'r
 import { Image } from 'expo-image';
 
 
-const DrawerProfile = () => {
+const DrawerProfile = (userData) => {
 
     const theme = useTheme();
 
@@ -52,6 +52,7 @@ const DrawerProfile = () => {
                                 value={phone}
                                 onChangeText={phone => setPhone(phone)}
                             />
+
                             <TextInput
                                 label="Email"
                                 placeholder="Current Email"
@@ -87,14 +88,13 @@ const DrawerProfile = () => {
                 </View>
 
                 <View style={{ alignItems: 'start' }}>
-                    <Text>ID: 1235test6789</Text>
+                    <Text variant="bodyMedium">ID: 1235test6789</Text>
                     <Text variant="bodyMedium">Name: Jhon Smith</Text>
                     <Text variant="bodyMedium">Company: SpaceX</Text>
                     <Text variant="bodyMedium">Email: jhon@smith.com</Text>
                 </View>
                 <View>
                 
-                {/* Usar modal, en vez de pantalla dentro de router */}
 
                 <IconButton
                     icon="account-edit-outline"

@@ -1,12 +1,9 @@
 import { View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import DrawerProfile from './drawerProfile';
 
 import { Button, IconButton, useTheme } from 'react-native-paper';
-
-import SettingsModal from './settingsModal';
 
 const CustomDrawer = (props) => {
 
