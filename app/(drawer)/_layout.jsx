@@ -1,9 +1,12 @@
 import { Drawer } from 'expo-router/drawer';
+import CustomDrawer from '../../globals/customDrawer';
 
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useTheme } from 'react-native-paper';
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+
+<CustomDrawer />
 
 export default function DrawerLayout () {
 
@@ -16,6 +19,7 @@ export default function DrawerLayout () {
           headerShown: false
           /* swipeEdgeWidth: 0, => Elimina la posibilidad de abrir el menu desplazando desde el borde de la pantalla */
         }}
+        drawerContent={(props) => <CustomDrawer {...props} /> }
       >
 
         <Drawer.Screen
@@ -45,8 +49,7 @@ export default function DrawerLayout () {
         <Drawer.Screen
           name='settings'
           options={{
-            drawerLabel: 'Settings',
-            drawerIcon: ({ size, color }) => <MaterialCommunityIcons name='account-cog' size={size} color={color} />
+            drawerItemStyle: { display: 'none' }
           }}
         />
 
