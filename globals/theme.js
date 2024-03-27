@@ -1,14 +1,6 @@
-import { MD3LightTheme, MD3DarkTheme, PaperProvider, adaptNavigationTheme } from 'react-native-paper';
-import { ThemeProvider } from '@react-navigation/native';
-import React, { useState } from 'react';
+import { MD3LightTheme, MD3DarkTheme } from 'react-native-paper'
 
-import { Slot } from 'expo-router';
-
-/* Investigando, parece ser que el Root y sus Wrapers se coloca en el primer _layout.jsx dentro de la carpeta "app". Seguir probando */
-
-/* Default Themes overwrite */
-
-const LightThemeColors = {
+export const LightThemeColors = {
   ...MD3LightTheme,
   colors: {
     primary: 'rgb(0, 106, 106)',
@@ -46,15 +38,15 @@ const LightThemeColors = {
       level2: 'rgb(230, 241, 240)',
       level3: 'rgb(223, 237, 236)',
       level4: 'rgb(220, 235, 235)',
-      level5: 'rgb(215, 232, 232)',
+      level5: 'rgb(215, 232, 232)'
     },
     surfaceDisabled: 'rgba(25, 28, 28, 0.12)',
     onSurfaceDisabled: 'rgba(25, 28, 28, 0.38)',
-    backdrop: 'rgba(41, 50, 50, 0.4)',
-  },
-};
+    backdrop: 'rgba(41, 50, 50, 0.4)'
+  }
+}
 
-const DarkThemeColors = {
+export const DarkThemeColors = {
   ...MD3DarkTheme,
   colors: {
     primary: 'rgb(0, 221, 221)',
@@ -92,79 +84,34 @@ const DarkThemeColors = {
       level2: 'rgb(23, 43, 43)',
       level3: 'rgb(22, 49, 49)',
       level4: 'rgb(22, 51, 51)',
-      level5: 'rgb(22, 55, 55)',
+      level5: 'rgb(22, 55, 55)'
     },
     surfaceDisabled: 'rgba(224, 227, 226, 0.12)',
     onSurfaceDisabled: 'rgba(224, 227, 226, 0.38)',
-    backdrop: 'rgba(41, 50, 50, 0.4)',
-  },
-};
-
-const LightThemeNavColors = {
-  dark: false,
-  colors: {
-    primary: 'rgb(0, 106, 106)',
-    background: 'rgb(204, 232, 231)',
-    card: 'rgb(250, 253, 252)',
-    text: 'rgb(5, 31, 31)',
-    border: 'rgb(0, 106, 106)',
-    notification: 'rgb(255, 69, 58)',
-  },
-};
-
-const DarkThemeNavColors ={
-  dark: true,
-  colors: {
-    primary: 'rgb(0, 106, 106)', /* Primary */
-    background: 'rgb(204, 232, 231)', /* Secondary Container */
-    card: 'rgb(250, 253, 252)', 
-    text: 'rgb(5, 31, 31)',
-    border: 'rgb(0, 106, 106)', /* Primary */
-    notification: 'rgb(255, 69, 58)',
+    backdrop: 'rgba(41, 50, 50, 0.4)'
   }
 }
 
-const { LightTheme, DarkTheme } = adaptNavigationTheme({
-  reactNavigationLight: LightThemeNavColors,
-  reactNavigationDark: DarkThemeNavColors,
-});
-
-const CombinedDefaultTheme = {
-  ...LightThemeColors,
-  ...LightTheme,
+export const LightThemeNavColors = {
+  dark: false,
   colors: {
-    ...LightThemeColors.colors,
-    ...LightTheme.colors,
-  },
-};
-const CombinedDarkTheme = {
-  ...DarkThemeColors,
-  ...DarkTheme,
+    primary: 'rgb(0, 106, 106)', /* Primary */
+    background: 'rgb(250, 253, 252)', /* Background */
+    card: 'rgb(218, 229, 228)', /* Surface Variant */
+    text: 'rgb(25, 28, 28)', /* On Background */
+    border: 'rgb(63, 73, 72)', /* On Surface Variant */
+    notification: 'rgb(65, 0, 2)' /* On Error Container */
+  }
+}
+
+export const DarkThemeNavColors = {
+  dark: true,
   colors: {
-    ...DarkThemeColors.colors,
-    ...DarkTheme.colors,
-  },
-};
-
-/* const CombinedDefaultTheme = merge(LightThemeColors, LightTheme);
-const CombinedDarkTheme = merge(DarkThemeColors, DarkTheme); */
-
-export default function RootLayout() {
-
-  const [theme, setTheme] = useState(CombinedDefaultTheme); // Light Theme Default
-
-  // Toggle Dark/Light Themes
-  const toggleTheme = () => {
-    const newTheme = theme === CombinedDefaultTheme ? CombinedDarkTheme : CombinedDefaultTheme;
-    setTheme(newTheme);
-  };
-
-    return(
-        <PaperProvider theme={theme}>
-          <ThemeProvider value={theme}>
-            <Slot />
-          </ThemeProvider>
-        </PaperProvider>
-    )
-
+    primary: 'rgb(0, 221, 221)', /* Primary */
+    background: 'rgb(25, 28, 28)', /* Secondary Container */
+    card: 'rgb(63, 73, 72)', /* Surface Variant */
+    text: 'rgb(224, 227, 226)', /* On Background */
+    border: 'rgb(190, 201, 200)', /* On Surface Variant */
+    notification: 'rgb(255, 69, 58)' /* On Error Container */
+  }
 }
