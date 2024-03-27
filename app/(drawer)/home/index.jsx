@@ -5,7 +5,7 @@ import { DrawerToggleButton } from '@react-navigation/drawer';
 
 import { useTheme, Text } from 'react-native-paper';
 
-
+import Chart from './components/charts/chart'
 
 export default function HomePage () {
 
@@ -20,7 +20,10 @@ export default function HomePage () {
           headerLeft: () => <DrawerToggleButton tintColor={theme.colors.primary} />
         }}
       />
-      <Text>Test Home</Text>
+      <View style={{ rowGap: 50, alignSelf: 'center' }}>
+        <Text>Test Home</Text>
+        <Chart />
+      </View>
     </ScrollView>
   )
 }
