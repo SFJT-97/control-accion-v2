@@ -75,7 +75,7 @@ async function clearData () {
 }
 
 export default function LoginScreen () {
-  const theme = useTheme()
+  // const theme = useTheme()
 
   const [waiting, setWaiting] = useState(false)
   const [login, dataLogedUser] = useMutation(gqlLoginM)
